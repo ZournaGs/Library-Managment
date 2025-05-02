@@ -136,21 +136,8 @@ public class Main {
 		Interface();
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //TO DO
+	//Create Transaction class methods
 
 	public static void Exit(){
 		System.out.println("Exiting...");
