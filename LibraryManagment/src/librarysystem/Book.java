@@ -88,4 +88,8 @@ public class Book {
             System.out.println(data[i]);
         }
     }
+
+    //methods
+
+    
 }

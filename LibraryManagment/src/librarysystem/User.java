@@ -1,51 +1,47 @@
 package librarysystem;
 
+import java.security.SecureRandom;
+import java.util.Base64;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+
 public class User {
-	private Integer usrid;
+	private Integer usrid;//Handled by DB
 	private String usrname;
 	private String passwd;
-	private Boolean isadmin;
+	private String email;
+	private String salt;//Handled by HashPassword method
+	private Boolean isadmin;//Always false, admins are handled by IT
+	//Hashing settings
+	private static final int ITERATIONS = 100_000;
+    private static final int KEY_LENGTH = 256;
+    private static final String ALGORITHM = "PBKDF2WithHmacSHA256";
+
+
 	
-	//Constructors
-	public User()
+	//Constructors,no nulls
+	public User(String usrname, String passwd,String email)
 	{
-		this.usrid=null;
-		this.usrname="";
-		this.passwd="";
-		this.isadmin=null;
-	}
-	
-	public User(Integer usrid)
-	{
-		this.usrid=usrid;
-		this.usrname="";
-		this.passwd="";
-		this.isadmin=null;
-	}
-	
-	public User(Integer usrid, String usrname)
-	{
-		this.usrid=usrid;
-		this.usrname=usrname;
-		this.passwd="";
-		this.isadmin=null;
-	}
-	
-	public User(Integer usrid, String usrname, String passwd)
-	{
-		this.usrid=usrid;
+		if(usrname==null|passwd==null|email==null){
+			System.err.println("Cannot insert nulls!");
+		}else{
 		this.usrname=usrname;
 		this.passwd=passwd;
-		this.isadmin=null;
+		this.email=email;
+		this.isadmin=false;
+		}
 	}
+	//Empty Constructor
+	public User() {
+		this.usrid = null;//ID handled by DB
+		this.usrname = "";
+		this.passwd = "";
+		this.email = "";
+		this.salt = "";
+		this.isadmin =false;// Will be set false for security
+	}
+
 	
-	public User(Integer usrid, String usrname, String passwd, Boolean isadmin)
-	{
-		this.usrid=usrid;
-		this.usrname=usrname;
-		this.passwd=passwd;
-		this.isadmin=isadmin;
-	}
 	
 	// Getters
     public Integer getUsrid() {
@@ -64,6 +60,14 @@ public class User {
         return isadmin;
     }
 
+	public String getSalt(){
+		return salt;
+	}
+
+	public String getEmail(){
+		return email;
+	}
+
     // Setters
     public void setUsrid(Integer usrid) {
         this.usrid = usrid;
@@ -80,14 +84,23 @@ public class User {
     public void setIsadmin(Boolean isadmin) {
         this.isadmin = isadmin;
     }
+
+	public void setSalt(String salt){
+		this.salt=salt;
+	}
+
+	public void setEmail(String email){
+		this.email=email;
+	}
     
     public void ShowValues()
     {
     	//get the data
     	String[] data= {
-    			String.valueOf(this.usrid),
     			this.usrname,
     			this.passwd,
+				this.email,
+				this.salt,
     			String.valueOf(this.isadmin)
     	};
     	//print in series in a for loop
@@ -95,5 +108,30 @@ public class User {
     		System.out.println(data[i]);
     	}
     }
+	//methods
+
+	public void HashPassword() {
+        try {
+            SecureRandom random = new SecureRandom();
+            byte[] saltBytes = new byte[16];
+            random.nextBytes(saltBytes);
+            this.salt = Base64.getEncoder().encodeToString(saltBytes);
+
+            PBEKeySpec spec = new PBEKeySpec(this.passwd.toCharArray(), saltBytes, ITERATIONS, KEY_LENGTH);
+            SecretKeyFactory factory = SecretKeyFactory.getInstance(ALGORITHM);
+            byte[] hashBytes = factory.generateSecret(spec).getEncoded();
+
+            this.passwd = Base64.getEncoder().encodeToString(hashBytes);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Error hashing password", e);
+        }
+    }
+
+	public User CreateUser(String usrname,String passwd,String email){
+		User user=new User(usrname,passwd,email);
+		user.HashPassword();
+		return user;
+	}
 }
 	
