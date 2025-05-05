@@ -22,7 +22,7 @@ public class User {
 	//Constructors,no nulls
 	public User(String usrname, String passwd,String email)
 	{
-		if(usrname==null|passwd==null|email==null){
+		if(usrname==null||passwd==null||email==null){
 			System.err.println("Cannot insert nulls!");
 		}else{
 		this.usrname=usrname;

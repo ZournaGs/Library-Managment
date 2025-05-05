@@ -7,7 +7,9 @@ public class Transaction {
     //Date is handled by DB
     private Boolean completed;
     
-  //Constructors, no nulls are allowed
+  //Constructors
+  
+  //No nulls are allowed
     public Transaction(User user_t, Book book_t, TransactionType type, Boolean completed) {
     	if (user_t == null || book_t == null || type == null || completed == null) {
             throw new IllegalArgumentException("No null values allowed in Transaction.");
@@ -17,7 +19,15 @@ public class Transaction {
     	this.type=type;
     	this.completed=completed;
     }
-    
+    //Empty Constructor
+    public Transaction(){
+        this.user_t=null;
+        this.book_t=null;
+        this.type=null;
+        this.completed=null;
+    }
+
+
     //Getters
     public User getUser_t(){
     	return this.user_t;
@@ -52,7 +62,7 @@ public class Transaction {
     	this.completed=completed;
     }
     
-    //Show Transaction
+    //methods
     
     public void ShowValues() {
     	String[] data= {
@@ -66,6 +76,27 @@ public class Transaction {
         		System.out.println(data[i]);
         }
     }
+
+    public Transaction CreateTransaction(User user_t, Book book_t, TransactionType type) {
+        if (type == null) {
+            throw new IllegalArgumentException("Error: Transaction type cannot be null. User must BUY or BORROW.");
+        }
+    
+        boolean completedFlag;
+        switch (type) {
+            case BUY:
+                completedFlag = true;
+                break;
+            case BORROW:
+                completedFlag = false;
+                break;
+            default:
+                throw new IllegalArgumentException("Error: Invalid Transaction type.");
+        }
+        Transaction trans = new Transaction(user_t, book_t, type, completedFlag);
+        return trans;
+    }
+    
     
 }
 

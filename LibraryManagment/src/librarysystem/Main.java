@@ -9,13 +9,6 @@ public class Main {
 	static Scanner scanner=new Scanner(System.in);
 
 	public static void main(String[] args) {
-		//Testing
-		
-		//User user=new User(12,"JohnZour","tungtungsahur123");
-		//Book book= new Book("A12HV639D8G7W","A Random Book","John Pork");
-		//Transaction trans=new Transaction(user,book,TransactionType.BUY,true);
-		//trans.ShowValues();
-		
 		//Start the main interface
 		MainInterface();
 		//Read input int and make a choice from switch case forever
@@ -23,7 +16,7 @@ public class Main {
 		String choice=scanner.nextLine();
 		switch(choice) {
 		
-		case "1"://Dumb testing
+		case "1":
 			   UserChoise();
 			   break;
 		case "2":

@@ -14,11 +14,17 @@ public class Book {
         this.stock = null;
     }
 
+    //No nulls
     public Book(String isbn, String title, String author, Integer stock) {
-        this.isbn = isbn;
-        this.title = title;
-        this.author = author;
-        this.stock = stock;
+        if(isbn==null||title==null||author==null||stock==null){
+            System.err.println("Cannot insert nulls!");
+        }else{
+            this.isbn = isbn;
+            this.title = title;
+            this.author = author;
+            this.stock = stock;
+        }
+        
     }
 
     // Getters
