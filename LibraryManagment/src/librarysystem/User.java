@@ -133,5 +133,8 @@ public class User {
 		user.HashPassword();
 		return user;
 	}
+
+	//TO DO
+	//After DB is completed, must create EditUser and DeleteUser methods
 }
 	

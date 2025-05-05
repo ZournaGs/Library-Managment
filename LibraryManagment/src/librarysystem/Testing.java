@@ -1,9 +1,10 @@
 package librarysystem;
 public class Testing {
     public static void main(String[] args) {
-        User test=new User();
-        //test=test.CreateUser("John Pork", "secret123", "johnpork@hotmail.com");
-        test.ShowValues();
+        Book book=new Book();
+        book=book.InsertBook("AJF83NV7EL0F8", "Little Scientist", "SomeOldDude", 24);
+        book.ShowValues();
+
     }
 
 }

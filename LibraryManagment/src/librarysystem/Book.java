@@ -14,27 +14,6 @@ public class Book {
         this.stock = null;
     }
 
-    public Book(String isbn) {
-        this.isbn = isbn;
-        this.title = "";
-        this.author = "";
-        this.stock = null;
-    }
-
-    public Book(String isbn, String title) {
-        this.isbn = isbn;
-        this.title = title;
-        this.author = "";
-        this.stock = null;
-    }
-
-    public Book(String isbn, String title, String author) {
-        this.isbn = isbn;
-        this.title = title;
-        this.author = author;
-        this.stock = null;
-    }
-
     public Book(String isbn, String title, String author, Integer stock) {
         this.isbn = isbn;
         this.title = title;
@@ -91,5 +70,8 @@ public class Book {
 
     //methods
 
-    
+    public Book InsertBook(String isbn,String title,String author,Integer stock){
+        Book book=new Book(isbn,title,author,stock);
+        return book;
+    }
 }
