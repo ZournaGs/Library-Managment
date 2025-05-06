@@ -23,7 +23,7 @@ public class User {
 	public User(String usrname, String passwd,String email)
 	{
 		if(usrname==null||passwd==null||email==null){
-			System.err.println("Cannot insert nulls!");
+			throw new IllegalArgumentException("No nulls are allowed!");
 		}else{
 		this.usrname=usrname;
 		this.passwd=passwd;

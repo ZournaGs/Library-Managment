@@ -96,6 +96,8 @@ public class Transaction {
         Transaction trans = new Transaction(user_t, book_t, type, completedFlag);
         return trans;
     }
+
+    
     
     
 }

@@ -6,7 +6,7 @@ public class Testing {
         User user= new User();
         user=user.CreateUser("Tralalero", "tralala123", "iamshark@gmail.com");
         Transaction trans = new Transaction();
-        trans=trans.CreateTransaction(user, book, TransactionType.BUY);
+        trans=trans.CreateTransaction(user, book, TransactionType.BORROW);
         trans.ShowValues();
 
     }

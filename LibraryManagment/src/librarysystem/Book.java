@@ -17,7 +17,7 @@ public class Book {
     //No nulls
     public Book(String isbn, String title, String author, Integer stock) {
         if(isbn==null||title==null||author==null||stock==null){
-            System.err.println("Cannot insert nulls!");
+            throw new IllegalArgumentException("No nulls are allowed!");
         }else{
             this.isbn = isbn;
             this.title = title;
