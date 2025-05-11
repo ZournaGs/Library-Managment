@@ -54,7 +54,7 @@ public class Main {
 				"\n 4.Exit");
 	}
 
-
+    //USER
 	public static void UserChoise() {
 		//User options
 		System.out.println("You chose users\n"+
@@ -65,6 +65,7 @@ public class Main {
 		String input=scanner.nextLine().toLowerCase();
 		switch(input) {
 		case "create": System.out.println("Creating user...");
+		               EnterUser();
 		               break;
 		case "edit": System.out.println("Editing user...");
 		             break;
@@ -77,9 +78,42 @@ public class Main {
 		}
 		Interface();
 	}
-	//TO DO
-	//Create,Edit,Delete user methods in User class
+	public static void EnterUser(){
+		String username = null;
+        String password = null;
+        String email = null;
 
+        try {
+            System.out.print("Give username: ");
+            username = scanner.nextLine().trim();
+
+            System.out.print("Give password: ");
+            password = scanner.nextLine().trim();
+
+            System.out.print("Give email: ");
+            email = scanner.nextLine().trim();
+
+            // Validate inputs (simple check)
+            if (username.isEmpty() || password.isEmpty() || email.isEmpty()) {
+                throw new IllegalArgumentException("None of the fields can be empty.");
+            }
+
+            // Create and hash password
+            User user = new User();
+			user=user.CreateUser(username, password, email);
+            user.ShowValues();
+
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid input: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Something went wrong: " + e.getMessage());
+        }
+	};
+
+	//TO DO
+	//Edit,Delete user methods in User class
+
+    //BOOKS
 	public static void BookChoice(){
 	
 		//User options
@@ -91,6 +125,7 @@ public class Main {
 		String input=scanner.nextLine().toLowerCase();
 		switch(input) {
 		case "insert": System.out.println("Inserting book...");
+		               EnterBook();
 		               break;
 		case "edit": System.out.println("Editing book...");
 		             break;
@@ -103,8 +138,45 @@ public class Main {
 		}
 		Interface();
 	}
+
+	public static void EnterBook(){
+		String isbn = null;
+        String title = null;
+        String author = null;
+		String stock_string=null;
+
+        try {
+            System.out.print("Give ISBN: ");
+            isbn = scanner.nextLine().trim();
+
+            System.out.print("Give title: ");
+            title = scanner.nextLine().trim();
+
+            System.out.print("Give author: ");
+            author = scanner.nextLine().trim();
+
+			System.out.print("Give stock: ");
+            stock_string= scanner.nextLine().trim();
+			Integer stock=Integer.valueOf(stock_string);
+
+            // Validate inputs (simple check)
+            if (isbn.isEmpty() || title.isEmpty() || author.isEmpty()|| stock==null) {
+                throw new IllegalArgumentException("None of the fields can be empty.");
+            }
+
+            // Insert a new Book
+            Book book = new Book();
+			book=book.InsertBook(isbn, title, author,stock);
+            book.ShowValues();
+
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid input: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Something went wrong: " + e.getMessage());
+        }
+	}
 	//TO DO
-	//Make Book class methods
+	//Make Edit,Delete methods for Books
 
 	public static void TransactionChoice(){
 		//User options
@@ -128,6 +200,8 @@ public class Main {
 		}
 		Interface();
 	}
+
+	
 
     //TO DO
 	//Create Transaction class methods
