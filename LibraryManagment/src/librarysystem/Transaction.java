@@ -1,6 +1,7 @@
 package librarysystem;
 
 public class Transaction {
+    private Integer transid;//ID is registered by DB
     private User user_t;
     private Book book_t;
     private TransactionType type; // "BORROW or "BUY"
@@ -21,6 +22,7 @@ public class Transaction {
     }
     //Empty Constructor
     public Transaction(){
+        this.transid=null;
         this.user_t=null;
         this.book_t=null;
         this.type=null;
@@ -29,6 +31,10 @@ public class Transaction {
 
 
     //Getters
+    public Integer getTransid(){
+        return transid;
+    }
+
     public User getUser_t(){
     	return this.user_t;
     }
@@ -46,6 +52,10 @@ public class Transaction {
     }
     
     //Setters
+    public void setTransid(Integer transid){
+        this.transid=transid;
+    }
+
     public void setUser_t(User user) {
     	this.user_t=user;
     }
@@ -66,6 +76,7 @@ public class Transaction {
     
     public void ShowValues() {
     	String[] data= {
+                String.valueOf(this.transid),
         		this.user_t.getUsrname(),
         		this.book_t.getTitle(),
         		String.valueOf(type),
