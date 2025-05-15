@@ -1,0 +1,3 @@
+/out/                 # Ignores IntelliJ's build output
+*.iml                 # Ignores IntelliJ module files
+module-info.java      # Ignores the Java module declaration file (optional)
