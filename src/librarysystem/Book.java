@@ -1,4 +1,4 @@
-package librarysystem;
+package src.librarysystem;
 
 public class Book {
     private String isbn;

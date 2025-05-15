@@ -1,4 +1,4 @@
-package librarysystem;
+package src.librarysystem;
 
 import java.util.Scanner;
 
