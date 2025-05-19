@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ed5c588-f3e8-4518-b7f4-5f029767b4be" name="Changes" comment="Finally fixed the directories 3">
-      <change afterPath="$PROJECT_DIR$/src/database/ENUMS/TRANSACTION_TYPE.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/TABLES/BOOKS.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/TABLES/TRANSACTIONS.sql" afterDir="false" />
+    <list default="true" id="3ed5c588-f3e8-4518-b7f4-5f029767b4be" name="Changes" comment="USERS TABLE FIXED AND ADDED THE REST+ TRANSACTION TYPE ENUM">
+      <change afterPath="$PROJECT_DIR$/src/database/CONSTRAINTS/FOREIGN_KEYS.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/TABLES/TRANSACTIONS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/TABLES/TRANSACTIONS.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/TABLES/USERS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/TABLES/USERS.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "sql.rename.search.for.storage.occurrences": "true",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -160,6 +161,7 @@
     <MESSAGE value="Finally fixed the directories 2" />
     <MESSAGE value="Finally fixed the directories 3" />
     <MESSAGE value="USERS TABLE ADDED TO DATABASE" />
-    <option name="LAST_COMMIT_MESSAGE" value="USERS TABLE ADDED TO DATABASE" />
+    <MESSAGE value="USERS TABLE FIXED AND ADDED THE REST+ TRANSACTION TYPE ENUM" />
+    <option name="LAST_COMMIT_MESSAGE" value="USERS TABLE FIXED AND ADDED THE REST+ TRANSACTION TYPE ENUM" />
   </component>
 </project>
