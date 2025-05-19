@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ed5c588-f3e8-4518-b7f4-5f029767b4be" name="Changes" comment="USERS TABLE FIXED AND ADDED THE REST+ TRANSACTION TYPE ENUM">
-      <change afterPath="$PROJECT_DIR$/src/database/CONSTRAINTS/FOREIGN_KEYS.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/TABLES/TRANSACTIONS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/TABLES/TRANSACTIONS.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/TABLES/USERS.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/TABLES/USERS.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postgres/postgresql-42.7.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/DBtest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DBtest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.DBtest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.src.librarysystem.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -64,6 +64,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "sql.rename.search.for.storage.occurrences": "true",
     "vue.rearranger.settings.migration": "true"
   },
@@ -123,6 +126,7 @@
       <workItem from="1747328392915" duration="1513000" />
       <workItem from="1747434334107" duration="220000" />
       <workItem from="1747434567123" duration="16000" />
+      <workItem from="1747657519366" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="Finally fixed the directories 2">
       <option name="closed" value="true" />
